@@ -19,10 +19,16 @@ app.use('/api', filmIdRouter);
 
 
 var mysqlConnection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "multiflex",
+    // host: "localhost",
+    // user: "root",
+    // password: "root",
+    // database: "multiflex",
+    // multipleStatements: true
+
+    host: "eu-cdbr-west-02.cleardb.net",
+    user: "b4a6c581fd633b",
+    password: "93985fe0",
+    database: "heroku_7afb22a21ed93ec",
     multipleStatements: true
 });
 
