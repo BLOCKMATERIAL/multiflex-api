@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
-var cors = require('cors')
+// var cors = require('cors')
 
 var router = express.Router();
 var mysql = require('../app.js');

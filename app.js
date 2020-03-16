@@ -32,7 +32,7 @@ var mysqlConnection = mysql.createConnection({
     multipleStatements: true
 });
 
-app.use(cors())
+
 const port = process.env.PORT || 1000;
 
 app.listen(port,  () => console.log(`Listening on port ${port}..`));
