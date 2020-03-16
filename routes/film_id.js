@@ -8,7 +8,7 @@ var mysql = require('../app.js');
 
 
 router.get('/films/:id' , (req, res) => {
-    mysql.conn.query("SELECT film_id, poster_url, tittle_name, genre_name, release_date,film_review,trailer_url FROM films WHERE film_id = ? ",[req.params.id], (err, rows, fields) => {
+    mysql.conn.query("SELECT film_id, poster_url, title_name, genre_name, release_date, film_review, trailer_url FROM films WHERE film_id = ? ",[req.params.id], (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -18,7 +18,7 @@ router.get('/films/:id' , (req, res) => {
 
 } );
 router.get('/films' , (req, res) => {
-    mysql.conn.query("SELECT film_id, poster_url, tittle_name, genre_name, release_date,film_review,trailer_url FROM films ", (err, rows, fields) => {
+    mysql.conn.query("SELECT film_id, poster_url, title_name, genre_name, release_date, film_review, trailer_url FROM films ", (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
