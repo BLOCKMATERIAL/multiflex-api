@@ -9,22 +9,8 @@ var mysql = require('../database.js');
 
 
 
-router.get('/chat', function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    fs.readFile('./views/index.html', null, function (error, data) {
-        if (error) {
-            res.writeHead(404);
-            res.write('File not found!');
-        } else {
-            res.write(data);
-        }
-        res.end();
-    });
-
-});
-
 router.get('/films/:id' , (req, res) => {
-    mysql.query("SELECT film_id, poster_url, title_name, genre_name, release_date, film_review, trailer_url FROM films WHERE film_id = ? ",[req.params.id], (err, rows, fields) => {
+    mysql.query("SELECT * FROM films WHERE id = ? ",[req.params.id], (err, rows, fields) => {
         if (!err)
             res.send(rows);
         else
@@ -34,8 +20,10 @@ router.get('/films/:id' , (req, res) => {
 
 } );
 router.get('/films' , (req, res) => {
-    mysql.query("SELECT film_id, poster_url, title_name, genre_name, release_date, film_review, trailer_url FROM films ", (err, rows, fields) => {
-        if (!err)
+    // mysql.query("SELECT film_id, poster_url, title_name, genre_name, release_date, film_review, trailer_url, popularity FROM films ", (err, rows, fields) => {
+        mysql.query("SELECT * FROM films ", (err, rows, fields) => {
+
+            if (!err)
             res.send(rows);
         else
             console.log(err);
